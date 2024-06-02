@@ -20,14 +20,15 @@ class Scrapper:
         response = requests.get(self.website_url)
 
         if response.status_code == 200:
-             html_content = response.text
+            html_content = response.text
 
-             soup = BeautifulSoup(html_content, 'lxml')
+            soup = BeautifulSoup(html_content, 'lxml')
 
-             element = soup.select_one('#pagination > nav > span:nth-child(8) > a') 
-             page_amount = element.text
-             # log: found {page_amount} pages
-             self.page_amount = int(page_amount.replace(' ', ''))
+            element = soup.select_one('#pagination > nav > span:nth-child(8) > a') 
+            page_amount = element.text
+            self.logger.info(f'Found {page_amount} pages.')
+            self.page_amount = int(page_amount.replace(' ', ''))
+            
         else:
             self.logger.error(f"Failed to retrieve page, status code: {response.status_code}")
     
