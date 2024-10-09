@@ -1,4 +1,3 @@
-```markdown
 # Auto.RIA Ad Scraper
 
 This is an application for parsing ads on the site [https://auto.ria.com](https://auto.ria.com).
@@ -40,4 +39,3 @@ You can also run the project locally (without using Docker). For this:
     ```
 
 That's all!
-```
